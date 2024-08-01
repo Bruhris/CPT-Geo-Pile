@@ -1,5 +1,11 @@
-# CPT Geo Pile Program
+# CPT Geo Pile
 
-This is a application used for geotechnical calculations and data visualization.
+An application for geotechnical calculations and data visualization relating to pile resistance.
 
-Application is still currently under development.
+## How to use
+- Enter your data file into the program
+- Set the parameters and constants for the calculation
+- Calculate the pile resistances
+- Visualize the relationships using graphs
+
+### 🚧 Still under development 🚧
