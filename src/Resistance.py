@@ -2,35 +2,22 @@ import pandas as pd
 import math
 
 class Resistance():
-    # Constructor that takes in Parameter class object and MeasurementData class object
-    # Assigns the dataframes in the Parameter and MeasurementData objects to attributes
-    # of class which is inherited to the child classes
-    def __init__(self, parameters, measurements):
-        self.values = parameters.getValues()
-        self.constants = parameters.getConstants()
-        self.depth_data = measurements.getDepth()
-        self.qt_data = measurements.getQt()
-        self.resistanceDict = {}
+    def __init__(self):
+        self.something = ''
 
-
-    # Getter method to return the length-resistance dictionary as dataframe
-    def getResistance(self):
-        return pd.DataFrame(list(self.resistanceDict.items()))
     
 
 class ShaftResistance(Resistance):
     def __init__(self, parameters, measurements):
-        # Run parent class (Resistance class) constructor
         super().__init__(parameters, measurements)
     
-    # For a more detailed description on following algorithm, refer to the appendices.
     def calcShaftRes(self):
         intervals = self.values["no_interval"]
-        tempPileLength = self.values["min_len"] # Assign a temporary length as the minimum length inputted by the user
+        tempPileLength = self.values["min_len"]
         while (intervals > 0):
-            initial_len = 0.0 # Starting value to iterate from
-            total_shaft = 0 # Value that adds the resistance at each length
-            while initial_len <= tempPileLength: # For every length below the tempPileLength, perform a calculation based on the Qt value at that length
+            initial_len = 0.0
+            total_shaft = 0
+            while initial_len <= tempPileLength:
                 if initial_len < self.values["gwt"]:
                     Po = self.values["unit_weight"] * initial_len
                 else:

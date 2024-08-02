@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>787</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="measurements_tab">
+       <attribute name="icon">
+        <iconset theme="folder"/>
+       </attribute>
+       <attribute name="title">
+        <string>Measurements</string>
+       </attribute>
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>381</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="openFileButton">
+           <property name="text">
+            <string>Select Measurement File</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="worksheetLabel">
+             <property name="text">
+              <string>Worksheet Number</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="worksheetNumberSpinBox"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="filePathLabel">
+           <property name="text">
+            <string>File Path: </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="measurementFileTableWidget"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>15</y>
+          <width>551</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="measurementSelectionButton">
+           <property name="text">
+            <string>Select Measurements</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="depthLabel">
+             <property name="text">
+              <string>Depth (m)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="QtLabel">
+             <property name="text">
+              <string>Qt (MPa)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="SuLabel">
+             <property name="text">
+              <string>Su (kPa)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="IcLabel">
+             <property name="text">
+              <string>Ic</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QTableWidget" name="depthTableWidget"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QTableWidget" name="QtTableWidget"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QTableWidget" name="SuTableWidget"/>
+           </item>
+           <item row="3" column="1">
+            <widget class="QTableWidget" name="IcTableWidget"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="calculations_tab">
+       <attribute name="icon">
+        <iconset theme="accessories-calculator"/>
+       </attribute>
+       <attribute name="title">
+        <string>Calculations</string>
+       </attribute>
+       <widget class="QWidget" name="verticalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>301</width>
+          <height>691</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QComboBox" name="measurementTypeComboBox">
+           <item>
+            <property name="text">
+             <string>ICP-05</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>UWA-05</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FURGO-05</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>NGI-05</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Minimum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_2">
+           <item>
+            <property name="text">
+             <string>Compression</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Tension</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="verticalSpacing">
+            <number>3</number>
+           </property>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="OPDInput"/>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLabel" name="GWTLabel">
+             <property name="text">
+              <string>GWT (m):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="0">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLineEdit" name="ocvInput"/>
+           </item>
+           <item row="6" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="PTInput"/>
+           </item>
+           <item row="4" column="0">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="12" column="0">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="15" column="1">
+            <widget class="QLineEdit" name="unitWeightInput"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="OPDLabel">
+             <property name="text">
+              <string>Outer Pile Diameter:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="0">
+            <widget class="QPushButton" name="updateParamsButton">
+             <property name="text">
+              <string>Update Parameters</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="MPLInput"/>
+           </item>
+           <item row="15" column="0">
+            <widget class="QLabel" name="unitWeightLabel">
+             <property name="text">
+              <string>Unit Weight:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="ocvLabel">
+             <property name="text">
+              <string>ocv Value (degrees):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="noIntervalInput"/>
+           </item>
+           <item row="10" column="0">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="intervalLenInput"/>
+           </item>
+           <item row="8" column="0">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="intervalLenLabel">
+             <property name="text">
+              <string>Interval Length (m):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="noIntervalLabel">
+             <property name="text">
+              <string>Number of Intervals:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QLineEdit" name="GWTInput"/>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="PTLabel">
+             <property name="text">
+              <string>Pile Thickness (m):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="MPLLabel">
+             <property name="text">
+              <string>Minimum Pile Length (m):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="0">
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Minimum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>30</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>651</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QTableWidget" name="alphaTableWidget"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QPushButton" name="calcSRButton">
+             <property name="text">
+              <string>Shaft Resistance</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calcBRButton">
+             <property name="text">
+              <string>Base Resistance</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calcTRButton">
+             <property name="text">
+              <string>Total Resistance</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTableWidget" name="calcTableWidget">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>260</y>
+          <width>651</width>
+          <height>441</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="visualization_tab">
+       <attribute name="icon">
+        <iconset theme="utilities-system-monitor"/>
+       </attribute>
+       <attribute name="title">
+        <string>Visualization</string>
+       </attribute>
+       <widget class="PlotWidget" name="graphDisplay">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>30</y>
+          <width>561</width>
+          <height>661</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="graphOptionsComboBox">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>162</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Qt vs. Depth</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Su vs. Depth</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Base Resistance vs. Depth</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Shaft Resistance vs. Depth</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Total Resistance vs. Depth</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
