@@ -394,8 +394,22 @@ class Ui_MainWindow(QWidget):
         hheader.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
     
     def updateParameters(self):
-        parameters = {}
+
+        parameters = self.getParameters()
+
+        if not self.checkParameters(parameters):
+            return "ERROR"
         
+        calculationMethod = self.calculationMethodComboBox.currentText() 
+        constantType = self.constantTypeComboBox.currentText()
+        
+        self.measurements.setParameters(parameters, constantType, calculationMethod)
+
+        return
+
+    def getParameters(self):
+        parameters = {}
+
         outerPileDiameter = float(self.OPDInput.text())
         minimumPileLength = float(self.MPLInput.text())
         intervalLength = float(self.intervalLenInput.text())
@@ -404,16 +418,7 @@ class Ui_MainWindow(QWidget):
         frictionAngle = float(self.ocvInput.text())
         groundWaterTable = float(self.GWTInput.text())
         unitWeight = float(self.unitWeightInput.text())
-        
-        calculationMethod = self.calculationMethodComboBox.currentText() 
-        constantType = self.constantTypeComboBox.currentText()
 
-
-        if ((minimumPileLength + (intervalLength * noIntervals) > self.measurements.getDepth().iloc[-1, 0]) or
-            (round(minimumPileLength + (intervalLength * noIntervals) + (4 * outerPileDiameter)) > self.measurements.getDepth().iloc[-1, 0]) or
-            (pileThickness >= outerPileDiameter)):
-                raise ValueError
-        
         parameters.update({"outerPileDiameter" : outerPileDiameter})
         parameters.update({"minimumPileLength" : minimumPileLength})
         parameters.update({"intervalLength" : intervalLength})
@@ -422,10 +427,24 @@ class Ui_MainWindow(QWidget):
         parameters.update({"frictionAngle" : frictionAngle})
         parameters.update({"groundWaterTable" : groundWaterTable})
         parameters.update({"unitWeight" : unitWeight})
-        
-        self.measurements.setParameters(parameters, constantType, calculationMethod)
 
-        return
+        return parameters
+
+    def checkParameters(self, parameters):
+        minimumPileLength = parameters["minimumPileLength"]
+        intervalLength = parameters["intervalLength"]
+        noIntervals = parameters["noIntervals"]
+        outerPileDiameter = parameters["outerPileDiameter"]
+        pileThickness = parameters["pileThickness"]
+
+        if parameters["minimumPileLength"] + (intervalLength * noIntervals) > self.measurements.getDepth().iloc[-1, 0]:
+            return False
+        elif round(minimumPileLength + (intervalLength * noIntervals) + (4 * outerPileDiameter)) > self.measurements.getDepth().iloc[-1, 0]:
+            return False
+        elif pileThickness >= outerPileDiameter:
+            return False
+        
+        return True
 
 
 

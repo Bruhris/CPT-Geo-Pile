@@ -17,7 +17,7 @@ class MeasurementData:
         self.parameters = parameters
         self.constantType = constantType
         self.calcMethod = calcMethod
-        self.displacmentRatio = 1 - math.pow(((parameters["outerPileDiameter"] - parameters["pile_thickness"] * 2) / parameters["outerPileDiameter"]), 2)
+        self.displacmentRatio = 1 - math.pow(((parameters["outerPileDiameter"] - parameters["pileThickness"] * 2) / parameters["outerPileDiameter"]), 2)
 
     def updateDepth(self, data):
         self.depthDf = data
